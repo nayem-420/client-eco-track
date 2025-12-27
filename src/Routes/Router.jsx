@@ -4,6 +4,7 @@ import AuthLayouts from "../Layouts/AuthLayouts";
 import Registers from "../Pages/Auth/Registers";
 import Login from "../Pages/Auth/Login";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
+import NotFound from "../Pages/Error/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -33,5 +34,9 @@ export const router = createBrowserRouter([
         element: <ForgetPassword></ForgetPassword>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>,
   },
 ]);
