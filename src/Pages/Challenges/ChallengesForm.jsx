@@ -17,7 +17,7 @@ const ChallengesForm = () => {
   // Tanstack Query Mutation
   const { mutate, isPending } = useMutation({
     mutationFn: async (challengeData) => {
-      const res = await axiosSecure.post("/api/challenges", challengeData);
+      const res = await axiosSecure.post("/challenges", challengeData);
       return res.data;
     },
     onSuccess: () => {
