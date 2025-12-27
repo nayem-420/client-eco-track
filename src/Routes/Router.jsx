@@ -7,6 +7,7 @@ import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import NotFound from "../Pages/Error/NotFound";
 import Home from "../Pages/Home/Home";
 import ChallengesForm from "../Pages/Challenges/ChallengesForm";
+import ChallengeDetails from "../Pages/Challenges/ChallengeDetails";
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ export const router = createBrowserRouter([
       {
         path: "challenge-form",
         element: <ChallengesForm></ChallengesForm>,
+      },
+      {
+        path: "challenges/:id",
+        element: <ChallengeDetails></ChallengeDetails>,
       },
     ],
   },

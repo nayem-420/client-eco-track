@@ -42,7 +42,7 @@ const ChallengesCard = ({ challenge }) => {
         </div>
 
         <div className="card-actions justify-end mt-4">
-          <Link>
+          <Link to={`challenges/${_id}`}>
             <button className="btn btn-primary btn-sm">View Details</button>
           </Link>
         </div>
