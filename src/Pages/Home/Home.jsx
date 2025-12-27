@@ -10,7 +10,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <LiveStatistics></LiveStatistics>
-      <Challenges></Challenges>
+      <Challenges showViewMore={true}></Challenges>
       <WhyGoGreen></WhyGoGreen>
       <HowItWorks></HowItWorks>
     </div>

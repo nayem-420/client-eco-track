@@ -3,8 +3,10 @@ import ChallengesCard from "./ChallengesCard";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../Components/Loading/LoadingSpinner";
+import { FaArrowRightLong } from "react-icons/fa6";
+import { Link } from "react-router";
 
-const Challenges = () => {
+const Challenges = ({ showViewMore }) => {
   const axiosSecure = useAxiosSecure();
 
   const { data: challenges = [], isLoading: loading } = useQuery({
@@ -36,6 +38,13 @@ const Challenges = () => {
           ></ChallengesCard>
         ))}
       </div>
+      {showViewMore && (
+        <Link to={"/challenges"} className="my-8 flex justify-center">
+          <button className="btn-primary">
+            View More <FaArrowRightLong />
+          </button>
+        </Link>
+      )}
     </div>
   );
 };

@@ -8,6 +8,7 @@ import NotFound from "../Pages/Error/NotFound";
 import Home from "../Pages/Home/Home";
 import ChallengesForm from "../Pages/Challenges/ChallengesForm";
 import ChallengeDetails from "../Pages/Challenges/ChallengeDetails";
+import Challenges from "../Pages/Challenges/Challenges";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
       {
         path: "challenge-form",
         element: <ChallengesForm></ChallengesForm>,
+      },
+      {
+        path: "challenges",
+        element: <Challenges></Challenges>,
       },
       {
         path: "challenges/:id",
