@@ -6,6 +6,7 @@ import Login from "../Pages/Auth/Login";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import NotFound from "../Pages/Error/NotFound";
 import Home from "../Pages/Home/Home";
+import ChallengesForm from "../Pages/Challenges/ChallengesForm";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "challenge-form",
+        element: <ChallengesForm></ChallengesForm>,
       },
     ],
   },
