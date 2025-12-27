@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import Logo from "../../Shared/Logo";
 import SocialLogin from "./SocialLogin";
-import useAuth from "../../hooks/useAuth";
-import LoadingSpinner from "../../Components/LoadingSpinner";
 import Swal from "sweetalert2";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import LoadingSpinner from "../../Components/Loading/LoadingSpinner";
+import useAuth from "../../hooks/useAuth";
 
 const Registers = () => {
   const { setUser, registerUser, updateUserProfile, loading } = useAuth();

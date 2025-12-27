@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, NavLink } from "react-router";
 import Logo from "../Shared/Logo";
-import useAuth from "../hooks/useAuth";
 import Swal from "sweetalert2";
+import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
