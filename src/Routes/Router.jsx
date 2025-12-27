@@ -5,6 +5,7 @@ import Registers from "../Pages/Auth/Registers";
 import Login from "../Pages/Auth/Login";
 import ForgetPassword from "../Pages/Auth/ForgetPassword";
 import NotFound from "../Pages/Error/NotFound";
+import Home from "../Pages/Home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -13,7 +14,7 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: "hi",
+        element: <Home></Home>,
       },
     ],
   },
