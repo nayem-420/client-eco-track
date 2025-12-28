@@ -1,12 +1,16 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import LoadingSpinner from "../../Components/Loading/LoadingSpinner";
 
 const ChallengeDetails = () => {
   const { id } = useParams();
   const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
+    const navigate = useNavigate();
 
   const { data: details, isLoading } = useQuery({
     queryKey: ["challenge-details", id],
@@ -15,6 +19,48 @@ const ChallengeDetails = () => {
       return result.data;
     },
   });
+
+  const handleJoinChallenges = async () => {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "btn btn-success",
+        cancelButton: "btn btn-danger",
+      },
+      buttonsStyling: false,
+    });
+
+    const result = await swalWithBootstrapButtons.fire({
+      title: "Join Challenge?",
+      text: "Do you want to participate in this challenge?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonText: "Yes, join it!",
+      cancelButtonText: "No, cancel",
+      reverseButtons: true,
+    });
+
+    if (result.isConfirmed) {
+      try {
+        await axiosSecure.post(`/challenges/join/${id}`, {
+          email: user?.email,
+        });
+
+        swalWithBootstrapButtons.fire({
+          title: "Success!",
+          text: "You have successfully joined the challenge.",
+          icon: "success",
+        });
+          navigate("/dashboard/my-activities");
+      } catch (error) {
+        console.log(error);
+        swalWithBootstrapButtons.fire({
+          title: "Error!",
+          text: "Failed to join the challenge. Please try again.",
+          icon: "error",
+        });
+      }
+    }
+  };
 
   if (isLoading) return <LoadingSpinner></LoadingSpinner>;
   if (!details) return <p>No data found</p>;
@@ -157,7 +203,10 @@ const ChallengeDetails = () => {
 
             {/* Action Button */}
             <div className="card-actions justify-center mt-4">
-              <button className="btn btn-primary btn-lg px-12">
+              <button
+                onClick={handleJoinChallenges}
+                className="btn btn-primary btn-lg px-12"
+              >
                 Join Challenge
               </button>
             </div>

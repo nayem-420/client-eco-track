@@ -1,7 +1,7 @@
+import axios from "axios";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import useAuth from "./useAuth";
-import axios from "axios";
 
 const axiosSecure = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL}`,
