@@ -9,6 +9,8 @@ import Home from "../Pages/Home/Home";
 import ChallengesForm from "../Pages/Challenges/ChallengesForm";
 import ChallengeDetails from "../Pages/Challenges/ChallengeDetails";
 import Challenges from "../Pages/Challenges/Challenges";
+import DashboardLayouts from "../Layouts/DashboardLayouts";
+import MyActivities from "../Pages/Dashboard/MyActivities";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +35,7 @@ export const router = createBrowserRouter([
       },
     ],
   },
+
   {
     path: "/",
     element: <AuthLayouts></AuthLayouts>,
@@ -48,6 +51,16 @@ export const router = createBrowserRouter([
       {
         path: "forget-password",
         element: <ForgetPassword></ForgetPassword>,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayouts></DashboardLayouts>,
+    children: [
+      {
+        path: "my-activities",
+        element: <MyActivities></MyActivities>,
       },
     ],
   },

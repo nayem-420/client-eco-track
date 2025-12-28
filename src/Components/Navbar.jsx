@@ -72,7 +72,7 @@ const Navbar = () => {
               <NavLink to="/challenge-form">Challenges Form</NavLink>
             </li>
             <li>
-              <NavLink to="/my-activities">My Activities</NavLink>
+              <NavLink to="/dashboard/my-activities">My Activities</NavLink>
             </li>
           </ul>
         </div>
@@ -93,7 +93,7 @@ const Navbar = () => {
             <NavLink to="/challenge-form">Challenges Form</NavLink>
           </li>
           <li>
-            <NavLink to="/my-activities">My Activities</NavLink>
+            <NavLink to="/dashboard/my-activities">My Activities</NavLink>
           </li>
         </ul>
       </div>
