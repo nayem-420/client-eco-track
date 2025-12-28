@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Components/Loading/LoadingSpinner";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import { Link } from "react-router";
 
 const MyActivities = () => {
   const axiosSecure = useAxiosSecure();
@@ -11,7 +12,7 @@ const MyActivities = () => {
   const { data: myActivities = [], isLoading } = useQuery({
     queryKey: ["my-activities", user?.email],
     queryFn: async () => {
-      const result = await axiosSecure.get(`/my-activities/${user?.email}`);
+      const result = await axiosSecure.get(`/my-activities/${user.email}`);
       return result.data;
     },
     enabled: !!user?.email,
@@ -54,9 +55,7 @@ const MyActivities = () => {
               {myActivities.map((activity, index) => (
                 <tr key={activity._id}>
                   <td>{index + 1}</td>
-                  <td>
-                    <div className="font-semibold">{activity.title}</div>
-                  </td>
+                  <td>{activity.title}</td>
                   <td>
                     <span className="badge badge-primary">
                       {activity.category}
@@ -67,11 +66,12 @@ const MyActivities = () => {
                   <td>{new Date(activity.startDate).toLocaleDateString()}</td>
                   <td>{new Date(activity.endDate).toLocaleDateString()}</td>
                   <td>
-                    {new Date(activity.endDate) > new Date() ? (
-                      <span className="badge badge-success">Active</span>
-                    ) : (
-                      <span className="badge badge-error">Completed</span>
-                    )}
+                    <Link
+                      to={`/dashboard/my-activities/${activity._id}`}
+                      className="btn btn-sm btn-primary"
+                    >
+                      View Progress
+                    </Link>
                   </td>
                 </tr>
               ))}

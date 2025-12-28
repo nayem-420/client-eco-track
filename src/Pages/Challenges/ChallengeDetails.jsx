@@ -20,7 +20,29 @@ const ChallengeDetails = () => {
     },
   });
 
+  const isAlreadyJoined = details?.joinedUsers?.includes(user?.email);
+
   const handleJoinChallenges = async () => {
+    if (!user) {
+      Swal.fire({
+        icon: "warning",
+        title: "Please Login",
+        text: "You need to login first",
+      });
+      navigate("/login");
+      return;
+    }
+
+    if (isAlreadyJoined) {
+      Swal.fire({
+        icon: "info",
+        title: "Already Joined",
+        text: "You have already joined this challenge",
+      });
+      navigate(`/dashboard/my-activities/${id}`);
+      return;
+    }
+
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: "btn btn-success",
@@ -50,12 +72,12 @@ const ChallengeDetails = () => {
           text: "You have successfully joined the challenge.",
           icon: "success",
         });
-          navigate("/dashboard/my-activities");
+        navigate(`/dashboard/my-activities/${id}`);
       } catch (error) {
         console.log(error);
         swalWithBootstrapButtons.fire({
           title: "Error!",
-          text: "Failed to join the challenge. Please try again.",
+          text: error.response?.data?.message || "Failed to join the challenge",
           icon: "error",
         });
       }
@@ -203,12 +225,21 @@ const ChallengeDetails = () => {
 
             {/* Action Button */}
             <div className="card-actions justify-center mt-4">
-              <button
-                onClick={handleJoinChallenges}
-                className="btn btn-primary btn-lg px-12"
-              >
-                Join Challenge
-              </button>
+              {isAlreadyJoined ? (
+                <button
+                  onClick={() => navigate(`/dashboard/my-activities/${id}`)}
+                  className="btn btn-success btn-lg px-12"
+                >
+                  View Progress →
+                </button>
+              ) : (
+                <button
+                  onClick={handleJoinChallenges}
+                  className="btn btn-primary btn-lg px-12"
+                >
+                  Join Challenge
+                </button>
+              )}
             </div>
           </div>
         </div>
