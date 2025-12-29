@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Outlet } from 'react-router';
 import Logo from '../Shared/Logo';
 import { FaListCheck } from 'react-icons/fa6';
+import { MdFormatAlignLeft } from "react-icons/md";
 
 const DashboardLayouts = () => {
     return (
@@ -50,7 +51,8 @@ const DashboardLayouts = () => {
             <ul className="menu w-full grow">
               {/* List item */}
               <li>
-                <Link to={'/'}
+                <Link
+                  to={"/"}
                   className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
                   data-tip="Homepage"
                 >
@@ -69,6 +71,18 @@ const DashboardLayouts = () => {
                     <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                   </svg>
                   <span className="is-drawer-close:hidden">Homepage</span>
+                </Link>
+              </li>
+
+              {/* My Activities */}
+              <li>
+                <Link
+                  to={"challenge-form"}
+                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                  data-tip="Challenge Form"
+                >
+                  <MdFormatAlignLeft className="size-4 my-1.5 inline-block" />
+                  <span className="is-drawer-close:hidden">Challenge Form</span>
                 </Link>
               </li>
 

@@ -11,6 +11,7 @@ import ChallengeDetails from "../Pages/Challenges/ChallengeDetails";
 import Challenges from "../Pages/Challenges/Challenges";
 import DashboardLayouts from "../Layouts/DashboardLayouts";
 import MyActivities from "../Pages/Dashboard/MyActivities";
+import PrivateRoute from "../Shared/PrivateRoute";
 // import ActivityDetails from "../Pages/Dashboard/ActivityDetails";
 
 export const router = createBrowserRouter([
@@ -22,10 +23,7 @@ export const router = createBrowserRouter([
         index: true,
         element: <Home></Home>,
       },
-      {
-        path: "challenge-form",
-        element: <ChallengesForm></ChallengesForm>,
-      },
+
       {
         path: "challenges",
         element: <Challenges></Challenges>,
@@ -57,19 +55,19 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayouts></DashboardLayouts>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayouts></DashboardLayouts>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "my-activities",
         element: <MyActivities></MyActivities>,
       },
       {
-        path: "my-activities/:id",
-        element: (
-          <>
-            {/* <ActivityDetails /> */}
-          </>
-        ),
+        path: "challenge-form",
+        element: <ChallengesForm></ChallengesForm>,
       },
     ],
   },
