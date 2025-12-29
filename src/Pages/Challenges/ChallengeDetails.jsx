@@ -39,7 +39,7 @@ const ChallengeDetails = () => {
         title: "Already Joined",
         text: "You have already joined this challenge",
       });
-      navigate(`/dashboard/my-activities/${id}`);
+      navigate(`/dashboard/my-activities`);
       return;
     }
 
@@ -72,7 +72,7 @@ const ChallengeDetails = () => {
           text: "You have successfully joined the challenge.",
           icon: "success",
         });
-        navigate(`/dashboard/my-activities/${id}`);
+        navigate(`/dashboard/my-activities`);
       } catch (error) {
         console.log(error);
         swalWithBootstrapButtons.fire({

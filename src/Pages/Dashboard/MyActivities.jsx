@@ -12,9 +12,7 @@ const MyActivities = () => {
   const { data: myActivities = [], isLoading } = useQuery({
     queryKey: ["my-activities", user?.email],
     queryFn: async () => {
-      const result = await axiosSecure.get(
-        `/my-activities/user/${user?.email}`
-      );
+      const result = await axiosSecure.get(`/challenges?email=${user?.email}`);
       return result.data;
     },
     enabled: !!user?.email,
@@ -68,12 +66,7 @@ const MyActivities = () => {
                   <td>{new Date(activity.startDate).toLocaleDateString()}</td>
                   <td>{new Date(activity.endDate).toLocaleDateString()}</td>
                   <td>
-                    <Link
-                      to={`/dashboard/my-activities/${activity._id}`}
-                      className="btn btn-sm btn-primary"
-                    >
-                      View Progress
-                    </Link>
+                    <div className="btn btn-sm btn-secondary">Complete</div>
                   </td>
                 </tr>
               ))}

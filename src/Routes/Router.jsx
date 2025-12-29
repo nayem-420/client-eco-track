@@ -11,7 +11,7 @@ import ChallengeDetails from "../Pages/Challenges/ChallengeDetails";
 import Challenges from "../Pages/Challenges/Challenges";
 import DashboardLayouts from "../Layouts/DashboardLayouts";
 import MyActivities from "../Pages/Dashboard/MyActivities";
-import ActivityDetails from "../Pages/Dashboard/ActivityDetails";
+// import ActivityDetails from "../Pages/Dashboard/ActivityDetails";
 
 export const router = createBrowserRouter([
   {
@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
         path: "my-activities/:id",
         element: (
           <>
-            <ActivityDetails />
+            {/* <ActivityDetails /> */}
           </>
         ),
       },

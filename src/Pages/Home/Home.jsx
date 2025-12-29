@@ -4,8 +4,8 @@ import WhyGoGreen from "./WhyGoGreen";
 import HowItWorks from "./HowItWorks";
 import Challenges from "../Challenges/Challenges";
 import LiveStatistics from "./LiveStatistics";
-// import UpcomingEvents from "./UpcomingEvents";
-// import RecentTips from "./RecentTips";
+import UpcomingEvents from "./UpcomingEvents";
+import RecentTips from "./RecentTips";
 
 const Home = () => {
   return (
@@ -13,8 +13,8 @@ const Home = () => {
       <Banner></Banner>
       <LiveStatistics></LiveStatistics>
       <Challenges showViewMore={true}></Challenges>
-      {/* <UpcomingEvents></UpcomingEvents>
-      <RecentTips></RecentTips> */}
+      <UpcomingEvents></UpcomingEvents>
+      <RecentTips></RecentTips>
       <WhyGoGreen></WhyGoGreen>
       <HowItWorks></HowItWorks>
     </div>
