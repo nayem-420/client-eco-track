@@ -121,7 +121,7 @@ const Navbar = () => {
                 </li>
                 <div className="divider my-1"></div>
                 <li>
-                  <NavLink to="/my-activities">
+                  <NavLink to="/dashboard/my-activities">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4"
