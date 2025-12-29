@@ -12,7 +12,9 @@ const MyActivities = () => {
   const { data: myActivities = [], isLoading } = useQuery({
     queryKey: ["my-activities", user?.email],
     queryFn: async () => {
-      const result = await axiosSecure.get(`/my-activities/${user.email}`);
+      const result = await axiosSecure.get(
+        `/my-activities/user/${user?.email}`
+      );
       return result.data;
     },
     enabled: !!user?.email,

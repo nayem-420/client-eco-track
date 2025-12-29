@@ -19,7 +19,7 @@ const ActivityDetails = () => {
     queryKey: ["activity-detail", id, user?.email],
     queryFn: async () => {
       const result = await axiosSecure.get(
-        `/my-activities/${id}?email=${user?.email}`
+        `/my-activities/challenge/${id}?email=${user?.email}`
       );
       return result.data;
     },

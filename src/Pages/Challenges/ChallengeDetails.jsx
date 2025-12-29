@@ -225,21 +225,12 @@ const ChallengeDetails = () => {
 
             {/* Action Button */}
             <div className="card-actions justify-center mt-4">
-              {isAlreadyJoined ? (
-                <button
-                  onClick={() => navigate(`/dashboard/my-activities/${id}`)}
-                  className="btn btn-success btn-lg px-12"
-                >
-                  View Progress →
-                </button>
-              ) : (
-                <button
-                  onClick={handleJoinChallenges}
-                  className="btn btn-primary btn-lg px-12"
-                >
-                  Join Challenge
-                </button>
-              )}
+              <button
+                onClick={handleJoinChallenges}
+                className="btn btn-primary btn-lg px-12"
+              >
+                Join Challenge
+              </button>
             </div>
           </div>
         </div>
